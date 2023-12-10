@@ -1,22 +1,27 @@
 [versions]
 androidGradlePlugin = "8.2.0"
-kotlin = "1.9.0"
+androidTools = "31.2.0"
+kotlin = "1.9.21"
 androidxCore = "1.12.0"
 androidxLifecycle = "2.6.2"
 androidxActivity = "1.8.1"
-androidxComposeBom = "2023.08.00"
+androidxComposeBom = "2023.10.01"
+androidxComposeCompiler = "1.5.6"
 junit = "4.13.2"
 androidxJunit = "1.1.5"
 androidxEspresso = "3.5.1"
 androidxAppcompat = "1.6.1"
 material = "1.10.0"
 androidxConstraintlayout = "2.1.4"
+ksp = "1.9.20-1.0.14"
+androidxWorkTesting = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "androidxComposeCompiler" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version = "unspecified" }
 androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version = "unspecified" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version = "unspecified" }
@@ -31,7 +36,18 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 com-google-android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-constraintlayout = {group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidxConstraintlayout"}
 
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+work-testing = { group = "androidx.work", name = "work-testing", version.ref = "androidxWorkTesting" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+
+# Plugins defined by this project
+com-example-android-application-compose = { id = "com.example.android.application.compose", version = "unspecified" }

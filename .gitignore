@@ -14,3 +14,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# generated files
+bin/
+gen/
+out/
+build/
