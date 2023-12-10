@@ -19,3 +19,4 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app:composemobile")
 include(":app:xmlmobile")
+include(":core:domain")
