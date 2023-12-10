@@ -14,4 +14,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Crypto Modular Application"
-include(":app")
+include(":app:composemobile")
+include(":app:xmlmobile")
