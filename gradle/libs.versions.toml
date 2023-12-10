@@ -73,3 +73,4 @@ com-example-android-hilt = { id = "com.example.hilt", version = "unspecified" }
 com-example-android-library = { id = "com.example.android.library", version = "unspecified" }
 com-example-android-library-compose = { id = "com.example.android.library.compose", version = "unspecified" }
 com-example-android-feature-compose = { id = "com.example.android.feature.compose", version = "unspecified" }
+com-example-android-application-flavors = { id = "com.example.android.application.flavors", version = "unspecified" }

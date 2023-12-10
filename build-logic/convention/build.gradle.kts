@@ -42,6 +42,10 @@ gradlePlugin {
             id = "com.example.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
+        register("androidApplicationFlavors"){
+            id = "com.example.android.application.flavors"
+            implementationClass = "AndroidApplicationFlavorsConventionPlugin"
+        }
         register("androidHilt") {
             id = "com.example.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
