@@ -34,6 +34,10 @@ tasks {
 
 gradlePlugin {
     plugins {
+        register("androidApplication") {
+            id = "com.example.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
         register("androidApplicationCompose") {
             id = "com.example.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"

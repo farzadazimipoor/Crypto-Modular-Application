@@ -67,6 +67,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
 # Plugins defined by this project
+com-example-android-application = { id = "com.example.android.application", version = "unspecified" }
 com-example-android-application-compose = { id = "com.example.android.application.compose", version = "unspecified" }
 com-example-android-hilt = { id = "com.example.hilt", version = "unspecified" }
 com-example-android-library = { id = "com.example.android.library", version = "unspecified" }
