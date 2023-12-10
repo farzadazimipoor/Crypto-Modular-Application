@@ -70,3 +70,5 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 com-example-android-application-compose = { id = "com.example.android.application.compose", version = "unspecified" }
 com-example-android-hilt = { id = "com.example.hilt", version = "unspecified" }
 com-example-android-library = { id = "com.example.android.library", version = "unspecified" }
+com-example-android-library-compose = { id = "com.example.android.library.compose", version = "unspecified" }
+com-example-android-feature-compose = { id = "com.example.android.feature.compose", version = "unspecified" }
