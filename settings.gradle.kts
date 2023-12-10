@@ -13,6 +13,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Crypto Modular Application"
+rootProject.name = "CryptoModularApplication"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 include(":app:composemobile")
 include(":app:xmlmobile")
