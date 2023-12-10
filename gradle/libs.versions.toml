@@ -3,11 +3,13 @@ androidGradlePlugin = "8.2.0"
 androidDesugarJdkLibs = "2.0.4"
 androidTools = "31.2.0"
 kotlin = "1.9.21"
+kotlinxCoroutines = "1.7.3"
 androidxCore = "1.12.0"
 androidxLifecycle = "2.6.2"
 androidxActivity = "1.8.1"
 androidxComposeBom = "2023.10.01"
 androidxComposeCompiler = "1.5.6"
+androidxHiltNavigationCompose = "1.1.0"
 junit = "4.13.2"
 androidxJunit = "1.1.5"
 androidxEspresso = "3.5.1"
@@ -44,6 +46,10 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", v
 hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
