@@ -1,21 +1,18 @@
 plugins {
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.com.example.android.application)
     alias(libs.plugins.com.example.android.application.compose)
+    alias(libs.plugins.com.example.android.application.flavors)
     alias(libs.plugins.com.example.android.hilt)
 }
 
 android {
-    namespace = "com.example.composemobile"
-    compileSdk = 34
-
     defaultConfig {
         applicationId = "com.example.composemobile"
-        minSdk = 24
-        targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0" // X.Y.Z; X = Major, Y = minor, Z = Patch level
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // Custom test runner to set up Hilt dependency graph
+        //testInstrumentationRunner = "com.google.samples.apps.nowinandroid.core.testing.NiaTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -30,21 +27,22 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes.add("/META-INF/{AL2.0,LGPL2.1}")
         }
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+    namespace = "com.example.composemobile"
 }
 
 dependencies {
+
+    implementation(projects.feature.composeCrypto)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -54,10 +52,11 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.test.espresso.core)
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
+    androidTestImplementation(kotlin("test"))
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Core functions
+    testImplementation(libs.work.testing)
+    testImplementation(kotlin("test"))
+    kspTest(libs.hilt.compiler)
 }

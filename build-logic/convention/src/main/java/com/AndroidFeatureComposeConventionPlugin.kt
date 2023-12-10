@@ -27,6 +27,7 @@ class AndroidFeatureComposeConventionPlugin : Plugin<Project> {
                 add("androidTestImplementation", kotlin("test"))
                 //add("androidTestImplementation", project(":core:testing"))
 
+                add("implementation", libs.findLibrary("androidx-compose-material3").get())
                 add("implementation", libs.findLibrary("androidx.hilt.navigation.compose").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.viewModelCompose").get())
