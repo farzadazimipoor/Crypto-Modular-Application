@@ -1,5 +1,6 @@
 [versions]
 androidGradlePlugin = "8.2.0"
+androidDesugarJdkLibs = "2.0.4"
 androidTools = "31.2.0"
 kotlin = "1.9.21"
 androidxCore = "1.12.0"
@@ -42,6 +43,7 @@ hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testi
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -61,3 +63,4 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 # Plugins defined by this project
 com-example-android-application-compose = { id = "com.example.android.application.compose", version = "unspecified" }
 com-example-android-hilt = { id = "com.example.hilt", version = "unspecified" }
+com-example-android-library = { id = "com.example.android.library", version = "unspecified" }
