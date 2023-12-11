@@ -44,6 +44,9 @@ dependencies {
 
     implementation(projects.feature.composeCrypto)
 
+    implementation(projects.core.domain)
+    implementation(projects.core.data)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
