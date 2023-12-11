@@ -30,10 +30,13 @@ class CryptoListViewModel @Inject constructor(
                     it.copy(isLoading = false, isError = false, coinList = coinList)
                 }
             }.onFailure {
-                _uiState.update {
-                    it.copy(isLoading = false, isError = true)
-                }
+                _uiState.update { it.copy(isLoading = false, isError = true) }
             }
         }
+    }
+
+    fun onRetry() {
+        _uiState.update { it.copy(isLoading = true, isError = false) }
+        loadData()
     }
 }
