@@ -1,24 +1,16 @@
 package com.example.data.repository
 
-import com.example.domain.model.Coin
-import com.example.domain.model.CoinDetail
+import com.example.data.mapper.toDomain
 import com.example.domain.repository.CoinRepository
+import com.example.network.retrofit.CryptoApiService
 import javax.inject.Inject
 
-class CoinRepositoryImpl @Inject constructor() : CoinRepository {
-    override suspend fun getCoins(): List<Coin> {
-        return listOf(
-            Coin(
-                id = "BTC",
-                isActive = true,
-                name = "BitCoin",
-                symbol = "B",
-                rank = 1,
-            )
-        )
+class CoinRepositoryImpl @Inject constructor(
+    private val apiService: CryptoApiService,
+) : CoinRepository {
+    override suspend fun getCoins() = apiService.getCoins().map {
+        it.toDomain()
     }
 
-    override suspend fun getCoin(id: String): CoinDetail {
-        throw Exception()
-    }
+    override suspend fun getCoin(id: String) = apiService.getCoinById(id).toDomain()
 }
