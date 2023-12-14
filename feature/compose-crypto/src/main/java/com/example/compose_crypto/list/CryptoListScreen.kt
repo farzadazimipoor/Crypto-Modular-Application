@@ -11,9 +11,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -57,7 +62,7 @@ fun CryptoListScreen(
         }
     ) { innerPadding ->
         when {
-            uiState.isError -> ErrorView(onRetry)
+            uiState.errorState != null -> ErrorView(uiState.errorState, onRetry)
             uiState.isLoading -> Loading()
             else -> ShowData(innerPadding, uiState)
         }
@@ -93,12 +98,23 @@ private fun Loading() {
 }
 
 @Composable
-private fun ErrorView(onRetry: () -> Unit) {
+private fun ErrorView(errorState: ErrorState, onRetry: () -> Unit) {
+    val (icon, message) = when (errorState) {
+        is ErrorState.AirPlainMode -> Pair(Icons.Default.Lock, "Airplane Mode Is On")
+        is ErrorState.NotConnected -> Pair(Icons.Default.Info, "Internet Not Connected")
+        else -> Pair(Icons.Default.Close, "Unknown Error Occurred")
+    }
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
-        Column {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Icon(
+                modifier = Modifier.size(96.dp).padding(bottom = 16.dp),
+                imageVector = icon,
+                tint = Color.Red,
+                contentDescription = "",
+            )
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = "Error!",
@@ -109,7 +125,7 @@ private fun ErrorView(onRetry: () -> Unit) {
             Spacer(modifier = Modifier.size(16.dp))
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = "An error occurred",
+                text = message,
                 textAlign = TextAlign.Center,
             )
             Spacer(modifier = Modifier.size(16.dp))

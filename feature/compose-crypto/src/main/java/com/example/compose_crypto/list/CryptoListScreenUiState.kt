@@ -5,5 +5,11 @@ import com.example.domain.model.Coin
 data class CryptoListScreenUiState(
     val isLoading: Boolean = false,
     val coinList: List<Coin> = emptyList(),
-    val isError: Boolean = false,
+    val errorState: ErrorState? = null,
 )
+
+sealed interface ErrorState {
+    data object AirPlainMode : ErrorState
+    data object NotConnected : ErrorState
+    data class Other(val message: String? = null) : ErrorState
+}
